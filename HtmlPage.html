@@ -12,12 +12,27 @@
   <div id="example"></div>
   <script src="JavaScript.jsx" type="text/babel"></script>
   <script type="text/babel">
-    <!--ReactDOM.render(
+    ReactDOM.render(
       <h1>Hello, world!</h1>,
       document.getElementById('example')
-    );-->
+    );
 
+    // Code goes here
+    var Button = ReactDOM.createClass({
+      getInitialState: function(){
+        return {counter: 0};
+      },
+      handleClick: function(){
+        this.setState({ counter:this.state.counter+1 });
+      },
+      render: function(){
+        return (
+          <button onClick={this.handleClick}>{this.state.counter}</button>
+        )
+      }
+    });
 
+    ReactDOM.render(<Button />, document.getElementById("root"));
   </script>
 </body>
 </html>
